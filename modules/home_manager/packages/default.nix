@@ -19,4 +19,5 @@
   discord = [ ./discord ];
   ninja = [ ./ninja ];
   xcode = [ ./xcode ];
+  dotnet = [ ./dotnet ];
 }
