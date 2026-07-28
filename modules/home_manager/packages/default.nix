@@ -20,4 +20,5 @@
   ninja = [ ./ninja ];
   xcode = [ ./xcode ];
   dotnet = [ ./dotnet ];
+  wezterm = [ ./wezterm ];
 }
