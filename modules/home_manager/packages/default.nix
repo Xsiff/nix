@@ -24,4 +24,5 @@
   herdr = [ ./herdr ];
   codex = [ ./codex ];
   neovim = [ ./neovim ];
+  opencode = [ ./opencode ];
 }
