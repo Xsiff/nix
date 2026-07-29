@@ -1,4 +1,4 @@
 { pkgs, ... }:
 {
-  home.packages = [ pkgs."cursor-agent" ];
+  home.packages = [ pkgs.llm-agents."cursor-agent" ];
 }

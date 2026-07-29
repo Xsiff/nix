@@ -21,7 +21,7 @@ inputs: let
     nixpkgs.overlays = [
       inputs.vscode-extensions.overlays.default
       inputs.nix-openclaw.overlays.default
-      inputs.llm-agents.overlays.default
+      inputs.llm-agents.overlays.shared-nixpkgs
     ];
     home-manager.users.${username} = mkHomeConfig username (mkModules config.custom.apps);
   };
