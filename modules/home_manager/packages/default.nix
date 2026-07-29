@@ -23,4 +23,5 @@
   wezterm = [ ./wezterm ];
   herdr = [ ./herdr ];
   codex = [ ./codex ];
+  neovim = [ ./neovim ];
 }
