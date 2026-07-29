@@ -22,4 +22,5 @@
   dotnet = [ ./dotnet ];
   wezterm = [ ./wezterm ];
   herdr = [ ./herdr ];
+  codex = [ ./codex ];
 }

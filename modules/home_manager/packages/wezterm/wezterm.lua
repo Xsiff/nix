@@ -9,7 +9,7 @@ config.font = wezterm.font("Hack Nerd Font", { weight = "Regular" })
 config.font_size = 14.0
 
 --opacity
-config.window_background_opacity = 0.75
+config.window_background_opacity = 0.90
 
 --other
 config.scrollback_lines = 10000
