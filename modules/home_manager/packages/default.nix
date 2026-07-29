@@ -21,4 +21,5 @@
   xcode = [ ./xcode ];
   dotnet = [ ./dotnet ];
   wezterm = [ ./wezterm ];
+  herdr = [ ./herdr ];
 }
