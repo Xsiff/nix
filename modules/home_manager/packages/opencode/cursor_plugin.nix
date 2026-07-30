@@ -37,5 +37,18 @@
         "cursor-acp/grok-4.5-low" = { name = "Cursor Grok 4.5 Low"; };
       };
     };
+
+    "llama.cpp" = {
+      npm = "@ai-sdk/openai-compatible";
+      name = "llama-server (local)";
+      options = {
+        baseURL = "http://127.0.0.1:8888/v1";
+      };
+      models = {
+        "qwen3-local" = {
+          name = "Qwen3 Local";
+        };
+      };
+    };
   };
 }
