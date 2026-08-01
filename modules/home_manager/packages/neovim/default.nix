@@ -27,6 +27,13 @@
       plenary-nvim
       oil-nvim
       nvim-tree-lua
+      nvim-dap
+      nvim-dap-python
+      nvim-dap-ui
+      nvim-nio
+      neotest
+      neotest-python
+      venv-selector-nvim
     ];
 
     initLua = ''
@@ -126,6 +133,55 @@
 
       require("nvim-tree").setup({})
       map("n", "<leader>n", "<cmd>NvimTreeToggle<cr>", opts("Toggle file tree"))
+
+      -- Python virtual environments.
+      require("venv-selector").setup({})
+      map("n", "<leader>vs", "<cmd>VenvSelect<cr>", opts("Select Python environment"))
+
+      -- Python debugging with nvim-dap and its UI.
+      local dap = require("dap")
+      local dapui = require("dapui")
+      dapui.setup({})
+      require("dap-python").setup(vim.fn.exepath("python3"))
+
+      dap.listeners.before.attach.dapui_config = function()
+        dapui.open()
+      end
+      dap.listeners.before.launch.dapui_config = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated.dapui_config = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited.dapui_config = function()
+        dapui.close()
+      end
+
+      map("n", "<F5>", dap.continue, opts("Start or continue debugging"))
+      map("n", "<F9>", dap.toggle_breakpoint, opts("Toggle breakpoint"))
+      map("n", "<F10>", dap.step_over, opts("Step over"))
+      map("n", "<F11>", dap.step_into, opts("Step into"))
+      map("n", "<F12>", dap.step_out, opts("Step out"))
+      map("n", "<leader>db", dapui.toggle, opts("Toggle debug UI"))
+
+      -- Python tests with neotest.
+      local neotest = require("neotest")
+      neotest.setup({
+        adapters = {
+          require("neotest-python")({}),
+        },
+      })
+      map("n", "<leader>tt", neotest.run.run, opts("Run nearest test"))
+      map("n", "<leader>tf", function()
+        neotest.run.run(vim.fn.expand("%"))
+      end, opts("Run test file"))
+      map("n", "<leader>ts", function()
+        neotest.run.run({ suite = true })
+      end, opts("Run test suite"))
+      map("n", "<leader>to", function()
+        neotest.output.open({ enter = true })
+      end, opts("Open test output"))
+      map("n", "<leader>tS", neotest.summary.toggle, opts("Toggle test summary"))
     '';
   };
 }
