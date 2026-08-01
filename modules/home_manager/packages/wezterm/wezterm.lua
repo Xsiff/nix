@@ -17,4 +17,8 @@ config.enable_scroll_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 config.window_decorations = "RESIZE"
 
+-- Keep macOS input-method support enabled. WezTerm's native Dictation path
+-- does not currently accept Apple's Dictation text reliably.
+config.use_ime = true
+
 return config

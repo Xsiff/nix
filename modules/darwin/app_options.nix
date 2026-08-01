@@ -5,4 +5,5 @@
     default = [];
     description = "List of apps to install";
   };
+
 }
