@@ -2,12 +2,15 @@
 {
   home.packages = with pkgs; [
     git
+    fd
 
     # Language servers and development tools.
     nixd
     alejandra
     pyright
     ruff
+    python3Packages.debugpy
+    python3Packages.pytest
   ];
 
   programs.neovim = {
@@ -27,6 +30,7 @@
       plenary-nvim
       oil-nvim
       nvim-tree-lua
+      (nvim-treesitter.withPlugins (p: [ p.python ]))
       nvim-dap
       nvim-dap-python
       nvim-dap-ui
@@ -135,14 +139,18 @@
       map("n", "<leader>n", "<cmd>NvimTreeToggle<cr>", opts("Toggle file tree"))
 
       -- Python virtual environments.
-      require("venv-selector").setup({})
+      require("venv-selector").setup({
+        options = {
+          fd_binary_name = "fd",
+        },
+      })
       map("n", "<leader>vs", "<cmd>VenvSelect<cr>", opts("Select Python environment"))
 
       -- Python debugging with nvim-dap and its UI.
       local dap = require("dap")
       local dapui = require("dapui")
       dapui.setup({})
-      require("dap-python").setup(vim.fn.exepath("python3"))
+      require("dap-python").setup("debugpy-adapter")
 
       dap.listeners.before.attach.dapui_config = function()
         dapui.open()
@@ -157,12 +165,27 @@
         dapui.close()
       end
 
+      local function send_selection_to_repl()
+        local lines = vim.fn.getline("'<", "'>")
+        dap.repl.execute(table.concat(lines, "\n"))
+      end
+
+      -- Match the VS Code Python debugger shortcuts. <D-...> is Command on macOS.
+      map("n", "<D-1>", dap.continue, opts("Continue debugging"))
+      map("n", "<D-2>", dap.step_over, opts("Step over"))
+      map("n", "<D-3>", dap.step_into, opts("Step into"))
+      map("n", "<D-4>", dap.step_out, opts("Step out"))
+      map("n", "<D-5>", dap.restart, opts("Restart debugging"))
+      map("v", "<D-e>", send_selection_to_repl, opts("Send selection to debug REPL"))
+
+      -- Function-key aliases for terminals that do not forward Command shortcuts.
       map("n", "<F5>", dap.continue, opts("Start or continue debugging"))
       map("n", "<F9>", dap.toggle_breakpoint, opts("Toggle breakpoint"))
       map("n", "<F10>", dap.step_over, opts("Step over"))
       map("n", "<F11>", dap.step_into, opts("Step into"))
       map("n", "<F12>", dap.step_out, opts("Step out"))
       map("n", "<leader>db", dapui.toggle, opts("Toggle debug UI"))
+      map("n", "<leader>bp", dap.toggle_breakpoint, opts("Toggle breakpoint"))
 
       -- Python tests with neotest.
       local neotest = require("neotest")
@@ -172,6 +195,9 @@
         },
       })
       map("n", "<leader>tt", neotest.run.run, opts("Run nearest test"))
+      map("n", "<leader>td", function()
+        neotest.run.run({ strategy = "dap" })
+      end, opts("Debug nearest test"))
       map("n", "<leader>tf", function()
         neotest.run.run(vim.fn.expand("%"))
       end, opts("Run test file"))
