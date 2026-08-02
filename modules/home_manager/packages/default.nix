@@ -27,4 +27,5 @@
   opencode = [ ./opencode ];
   cursor_agent = [ ./cursor_agent ];
   tmux = [ ./tmux ];
+  glow = [ ./glow ];
 }
