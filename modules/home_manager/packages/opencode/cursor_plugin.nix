@@ -48,6 +48,12 @@
         "qwen3-local" = {
           name = "Qwen3 Local";
         };
+        "qwen-35b-local" = {
+          name = "Qwen 35B Local";
+        };
+        "qwopus-9b-coder-local" = {
+          name = "Qwopus 9B Coder Local";
+        };
       };
     };
   };
