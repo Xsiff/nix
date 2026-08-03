@@ -17,10 +17,10 @@ inputs: let
 
   in {
     MacbookProFull = mkDarwinConfig username { 
-      custom.apps = [ "vscode" "spotify" "htop" "uv" "cursor" "tex-live" "docker" "colima" "zsh" "openclaw" "openssl" "boost" "clang_tools" "chrome" "openmp" "discord" "ninja" "xcode" "neovim" "opencode" "cursor_agent" "tmux" "glow"];
+      custom.apps = [ "vscode" "spotify" "htop" "uv" "cursor" "tex-live" "docker" "colima" "zsh" "openclaw" "openssl" "boost" "clang_tools" "chrome" "openmp" "discord" "ninja" "xcode" "neovim" "opencode" "pi" "cursor_agent" "glow"];
     };
     MacbookProStandard = mkDarwinConfig username { 
-      custom.apps = [ "spotify" "vscode" "uv" "tex-live" "cmake"  "clang_tools" "chrome" "wezterm" "zsh" "herdr" "codex" "neovim" "opencode" "cursor_agent" "tmux" "glow" "rustup"];
+      custom.apps = [ "spotify" "vscode" "uv" "tex-live" "cmake"  "clang_tools" "chrome" "wezterm" "zsh" "herdr" "codex" "neovim" "opencode" "pi" "cursor_agent" "glow" "rustup"];
     };
     MacbookProMinimal = mkDarwinConfig username { 
       custom.apps = []; 

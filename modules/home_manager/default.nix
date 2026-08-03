@@ -6,7 +6,10 @@ inputs: let
   mkModules = names: builtins.concatLists (map (name: packages.${name}) names);
 
   mkHomeConfig = username: programs: {
-    imports = programs ++ [ inputs.nix-openclaw.homeManagerModules.openclaw ];
+    imports = programs ++ [
+      inputs.nix-openclaw.homeManagerModules.openclaw
+      inputs.pi.homeModules.default
+    ];
     home = {
       username = username;
       homeDirectory = "/Users/${username}";
@@ -22,6 +25,7 @@ inputs: let
       inputs.vscode-extensions.overlays.default
       inputs.nix-openclaw.overlays.default
       inputs.llm-agents.overlays.shared-nixpkgs
+      inputs.pi.overlays.default
     ];
     home-manager.users.${username} = mkHomeConfig username (mkModules config.custom.apps);
   };

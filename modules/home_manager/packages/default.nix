@@ -25,7 +25,7 @@
   codex = [ ./codex ];
   neovim = [ ./neovim ];
   opencode = [ ./opencode ];
+  pi = [ ./pi ];
   cursor_agent = [ ./cursor_agent ];
-  tmux = [ ./tmux ];
   glow = [ ./glow ];
 }

@@ -1,0 +1,19 @@
+{
+  "providers": {
+    "local-llama": {
+      "name": "llama-server (local)",
+      "api": "openai-completions",
+      "baseUrl": "http://127.0.0.1:8888/v1",
+      "apiKey": "local",
+      "compat": {
+        "supportsDeveloperRole": false,
+        "supportsReasoningEffort": false
+      },
+      "models": [
+        { "id": "qwen3-local", "name": "Qwen3 Local" },
+        { "id": "qwen-35b-local", "name": "Qwen 35B Local" },
+        { "id": "qwopus-9b-coder-local", "name": "Qwopus 9B Coder Local" }
+      ]
+    }
+  }
+}
