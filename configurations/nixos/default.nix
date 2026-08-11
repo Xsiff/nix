@@ -19,10 +19,10 @@ inputs: let
 
   in {
     DesktopFull = mkNixOSConfig username { 
-      custom.apps = [ "vscode" "spotify" "htop" "uv" "cursor" "tex-live" "docker" "zsh" ]; 
+      custom.apps = [ "vscode" "spotify" "htop" "uv" "cursor" "tex-live" "docker" "zsh" "life-tracker" ]; 
     };
     DesktopStandard = mkNixOSConfig username { 
-      custom.apps = [ "cursor" "spotify" "vscode" "uv" "rustup" "chrome" "dotnet" ]; 
+      custom.apps = [ "cursor" "spotify" "vscode" "uv" "rustup" "chrome" "dotnet" "life-tracker" ]; 
     };
     DesktopMinimal = mkNixOSConfig username { 
       custom.apps = []; 
