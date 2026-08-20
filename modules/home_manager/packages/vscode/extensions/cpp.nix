@@ -44,4 +44,5 @@ with pkgs.vscode-marketplace; [
   franneck94.c-cpp-runner
   ms-vscode.cmake-tools
   ms-vscode.cpptools-themes
+  llvm-vs-code-extensions.vscode-clangd
 ]
