@@ -29,4 +29,5 @@
   cursor_agent = [ ./cursor_agent ];
   glow = [ ./glow ];
   life-tracker = [ ./life-tracker ];
+  ffmpeg = [ ./ffmpeg ];
 }

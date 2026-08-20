@@ -204,11 +204,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1786447717,
-        "narHash": "sha256-jsC+9YWWeHitfwAD69p8ogRf9PAht38nPLHHQSOx5kY=",
+        "lastModified": 1786485110,
+        "narHash": "sha256-K7UObYjfqkRDsQkeOaea26Q3YcQ/MabigaeQN1ub2IQ=",
         "owner": "Xsiff",
         "repo": "life-tracker",
-        "rev": "a7f30a05afafdbd59ed91cc484def92e045b6014",
+        "rev": "7b577ea14fbd5ee3394e0381d71609676dfa6de7",
         "type": "github"
       },
       "original": {
