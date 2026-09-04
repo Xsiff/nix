@@ -15,6 +15,8 @@
   openssl = [ ./openssl ];
   boost = [ ./boost ];
   clang_tools = [ ./clang_tools ];
+  llvm = [ ./llvm ];
+  mlir = [ ./mlir ];
   chrome = [ ./chrome ];
   openmp = [ ./openmp ];
   discord = [ ./discord ];
