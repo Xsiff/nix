@@ -1,3 +1,3 @@
 { pkgs, ... }: {
-  home.packages = [ pkgs.llvmPackages.lit ];
+  home.packages = [ pkgs.python3Packages.lit ];
 }
