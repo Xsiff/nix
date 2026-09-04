@@ -17,6 +17,7 @@
   clang_tools = [ ./clang_tools ];
   llvm = [ ./llvm ];
   mlir = [ ./mlir ];
+  lit = [ ./lit ];
   chrome = [ ./chrome ];
   openmp = [ ./openmp ];
   discord = [ ./discord ];
