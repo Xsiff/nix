@@ -22,6 +22,7 @@
   openmp = [ ./openmp ];
   discord = [ ./discord ];
   ninja = [ ./ninja ];
+  nodejs = [ ./nodejs ];
   xcode = [ ./xcode ];
   dotnet = [ ./dotnet ];
   wezterm = [ ./wezterm ];
