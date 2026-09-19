@@ -1,0 +1,6 @@
+interface:
+  display_name: "Delete"
+  short_description: "Remove packages from this repo flake"
+  default_prompt: "Use $delete to remove a package from this repository's Nix flake, for example `$delete tmux`."
+policy:
+  allow_implicit_invocation: true

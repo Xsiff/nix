@@ -1,0 +1,6 @@
+interface:
+  display_name: "Add"
+  short_description: "Add packages to this repo flake"
+  default_prompt: "Use $add to add a package to this repository's Nix flake, for example `$add tmux`."
+policy:
+  allow_implicit_invocation: true
