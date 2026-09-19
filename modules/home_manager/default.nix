@@ -29,8 +29,11 @@ inputs: let
       inputs.nix-openclaw.overlays.default
       inputs.llm-agents.overlays.shared-nixpkgs
       inputs.pi.overlays.default
-      (final: _: {
-        life-tracker = inputs.life-tracker.packages.${final.system}.default;
+      (final: _: let
+        system = final.stdenv.hostPlatform.system;
+      in {
+        life-tracker = inputs.life-tracker.packages.${system}.default;
+        herdr = inputs.herdr.packages.${system}.herdr;
       })
     ];
     home-manager.users.${username} = mkHomeConfig username (mkModules config.custom.apps);

@@ -17,6 +17,7 @@
     pi.inputs.home-manager.follows = "home-manager";
     life-tracker.url = "github:Xsiff/life-tracker";
     life-tracker.inputs.nixpkgs.follows = "nixpkgs";
+    herdr.url = "github:herdrdev/herdr/v0.9.1";
   };
 
   outputs = inputs:
