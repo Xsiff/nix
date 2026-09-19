@@ -1,6 +1,6 @@
 { pkgs }:
 let
-  llvmTblgen = pkgs.llvmPackages."llvm-tblgen";
+  llvmTblgen = pkgs.llvmPackages.tblgen;
 in
 pkgs.runCommandNoCC "mlir-tblgen-${llvmTblgen.version}" {} ''
   mkdir -p "$out/bin"
