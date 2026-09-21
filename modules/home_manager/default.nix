@@ -7,7 +7,6 @@ inputs: let
 
   mkHomeConfig = username: programs: {
     imports = programs ++ [
-      inputs.nix-openclaw.homeManagerModules.openclaw
       inputs.pi.homeModules.default
     ];
     home = {
@@ -26,7 +25,6 @@ inputs: let
     home-manager.useGlobalPkgs = true;
     nixpkgs.overlays = [
       inputs.vscode-extensions.overlays.default
-      inputs.nix-openclaw.overlays.default
       inputs.llm-agents.overlays.shared-nixpkgs
       inputs.pi.overlays.default
       (final: _: let

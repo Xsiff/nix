@@ -1,6 +1,5 @@
 {
   android = [ ./android ];
-  openclaw = [ ./openclaw ];
   vscode = [ ./vscode ];
   spotify = [ ./spotify ];
   htop = [ ./htop ];
